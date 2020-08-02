@@ -20,6 +20,7 @@ import Input from '../components/Input';
 import Btn from '../components/Btn';
 import Loader from './loader';
 import DismissKeyboard from '../components/DismissKeyboard';
+import firebase from 'react-native-firebase';
 
 const isAndroid = Platform.OS === 'android';
 
@@ -112,6 +113,14 @@ export default ({data, update, isLoading}) => {
   const [user_data, setData] = useState('');
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
+  const Banner = firebase.admob.Banner;
+  const AdRequest = firebase.admob.AdRequest;
+  const request = new AdRequest();
+
+  const unitId =
+    Platform.OS === 'ios'
+      ? 'ca-app-pub-8023750129034910/4489309770'
+      : 'ca-app-pub-8023750129034910/9280254412';
 
   const isFormValid = () => {
     if (user_data === '') {
@@ -191,7 +200,7 @@ export default ({data, update, isLoading}) => {
           style={{
             flexDirection: 'row',
             alignItems: 'flex-end',
-            marginBottom: 12,
+            marginBottom: 6,
           }}>
           <Input
             value={user_data}
@@ -210,6 +219,17 @@ export default ({data, update, isLoading}) => {
           />
         </View>
       </KeyboardAvoidingView>
+      <Banner
+        unitId={unitId} //ca-app-pub-3940256099942544/6300978111
+        size={'SMART_BANNER'}
+        request={request.build()}
+        onAdLoaded={() => {
+          console.log('Advert loaded');
+        }}
+        onAdFailedToLoad={(e) => {
+          console.log(e);
+        }}
+      />
       {isLoading ? <Loader /> : null}
     </View>
   );

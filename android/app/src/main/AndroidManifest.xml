@@ -29,6 +29,10 @@
       </service>
         <service android:name="io.invertase.firebase.messaging.RNFirebaseBackgroundMessagingService" />
         
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8023750129034910~9390282664"/>
+            
     </application>
 
 </manifest>
