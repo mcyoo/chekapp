@@ -243,7 +243,8 @@ const styles = StyleSheet.create({
   ios_container: {
     flex: 1,
     backgroundColor: 'white',
-    paddingTop: 20,
+    paddingTop: 45,
+    paddingBottom: 25,
   },
   listItem: {
     margin: 10,

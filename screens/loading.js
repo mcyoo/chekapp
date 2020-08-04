@@ -49,6 +49,7 @@ export default class extends React.Component {
     } catch (error) {
       // User has rejected permissions
       this.setState({noAuth: true});
+      await this._updateTokenToServer();
     }
   }
 
@@ -200,26 +201,6 @@ export default class extends React.Component {
 
   render() {
     const {isLoading, user_data, noAuth} = this.state;
-    return noAuth ? (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Image
-          style={{height: 80, width: 80, opacity: 0.3}}
-          source={require('../resource/noAuth.png')}
-        />
-        <Text style={{fontSize: 20, color: 'rgba(0,0,0,0.3)'}}>
-          알림 설정 해주세요.
-        </Text>
-        <Text style={{fontSize: 20, color: 'rgba(0,0,0,0.3)'}}>
-          설정 -> chek -> 알림 허용
-        </Text>
-      </View>
-    ) : (
-      <ListView data={user_data} update={this} isLoading={isLoading} />
-    );
+    return <ListView data={user_data} update={this} isLoading={isLoading} />;
   }
 }
