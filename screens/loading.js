@@ -54,9 +54,29 @@ export default class extends React.Component {
   }
 
   async _updateTokenToServer() {
-    const fcmToken = await firebase.messaging().getToken();
+    let fcmToken = null;
     if (Platform.OS === 'ios') {
-      await firebase.messaging().ios.registerForRemoteNotifications();
+      const apnsToken = await firebase.messaging().ios.getAPNSToken();
+      try {
+        const {
+          data: {results},
+        } = await api.getAPNSToken({
+          application: 'com.ios.chekapp',
+          sandbox: false,
+          apns_tokens: [apnsToken],
+        });
+        console.log(results[0].status);
+        if (results[0].status === 'OK') {
+          fcmToken = results[0].registration_token;
+        } else {
+          Alert.alert('잘못된 요청입니다. Internal Server Error');
+        }
+      } catch (e) {
+        Alert.alert('데이터 연결을 확인해 주세요.');
+      }
+      //await firebase.messaging().ios.registerForRemoteNotifications();
+    } else {
+      fcmToken = await firebase.messaging().getToken();
     }
     console.log(fcmToken);
     try {
