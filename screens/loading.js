@@ -5,6 +5,11 @@ import api from '../api';
 import ListView from '../screens/listviews';
 import {userSave} from '../redux/usersSlice';
 import SplashScreen from 'react-native-splash-screen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import FilterView from './FilterView';
+
+const Stack = createStackNavigator();
 
 export default class extends React.Component {
   constructor(props) {
@@ -69,10 +74,10 @@ export default class extends React.Component {
         if (results[0].status === 'OK') {
           fcmToken = results[0].registration_token;
         } else {
-          Alert.alert('잘못된 요청입니다. Internal Server Error');
+          Alert.alert('알림', '잘못된 요청입니다. Internal Server Error');
         }
       } catch (e) {
-        Alert.alert('데이터 연결을 확인해 주세요.');
+        Alert.alert('알림', '데이터 연결을 확인해 주세요.');
       }
       //await firebase.messaging().ios.registerForRemoteNotifications();
     } else {
@@ -94,10 +99,10 @@ export default class extends React.Component {
         this.props.dispatch(userSave(token));
         this._getData();
       } else {
-        Alert.alert('잘못된 요청입니다.');
+        Alert.alert('알림', '잘못된 요청입니다.');
       }
     } catch (e) {
-      Alert.alert('데이터 연결을 확인해 주세요.');
+      Alert.alert('알림', '데이터 연결을 확인해 주세요.');
     }
   }
 
@@ -119,10 +124,10 @@ export default class extends React.Component {
           user_data: data,
         });
       } else {
-        Alert.alert('잘못된 요청입니다.');
+        Alert.alert('알림', '잘못된 요청입니다.');
       }
     } catch (e) {
-      Alert.alert('데이터 연결을 확인해 주세요.');
+      Alert.alert('알림', '데이터 연결을 확인해 주세요.');
     }
   }
 
@@ -139,10 +144,10 @@ export default class extends React.Component {
       if (status === 200) {
         await this._getData();
       } else {
-        Alert.alert('잘못된 요청입니다.');
+        Alert.alert('알림', '잘못된 요청입니다.');
       }
     } catch (e) {
-      Alert.alert('데이터 연결을 확인해 주세요.');
+      Alert.alert('알림', '데이터 연결을 확인해 주세요.');
     }
   }
 
@@ -159,10 +164,10 @@ export default class extends React.Component {
       if (status === 200) {
         await this._getData();
       } else {
-        Alert.alert('잘못된 요청입니다.');
+        Alert.alert('알림', '잘못된 요청입니다.');
       }
     } catch (e) {
-      Alert.alert('데이터 연결을 확인해 주세요.');
+      Alert.alert('알림', '데이터 연결을 확인해 주세요.');
     }
   }
 
@@ -179,10 +184,10 @@ export default class extends React.Component {
       if (status === 200) {
         await this._getData();
       } else {
-        Alert.alert('잘못된 요청입니다.');
+        Alert.alert('알림', '잘못된 요청입니다.');
       }
     } catch (e) {
-      Alert.alert('데이터 연결을 확인해 주세요.');
+      Alert.alert('알림', '데이터 연결을 확인해 주세요.');
     }
   }
 
@@ -193,7 +198,7 @@ export default class extends React.Component {
       .notifications()
       .onNotification((notification) => {
         //앱이 활성화 된 상태에서 요청되는 push 알림을 처리하게 됩니다.
-        //Alert.alert('notiacive');
+        //Alert.alert('알림','notiacive');
         console.log('onNotification', notification);
         //RNRestart.Restart();
         this._getData();
@@ -203,7 +208,7 @@ export default class extends React.Component {
       .notifications()
       .onNotificationOpened((notificationOpen) => {
         // foreground, background에서 실행 중일때, push 알림을 클릭하여 열 때, 해당 push 알림을 처리하게 됩니다.
-        //Alert.alert('notifore');
+        //Alert.alert('알림','notifore');
         //console.log('onNotificationOpened', notificationOpen); 안나옴
         //RNRestart.Restart();
         this._getData();
@@ -214,13 +219,45 @@ export default class extends React.Component {
       .getInitialNotification();
     if (notificationOpen) {
       // 앱이 종료된 상황에서 push 알림을 클릭하여 열 때, 해당 push 알림을 처리하게 됩니다.
-      //Alert.alert('notiback');
+      //Alert.alert('알림','notiback');
       //console.log('getInitialNotification', notificationOpen); 안나옴
     }
   }
 
   render() {
     const {isLoading, user_data, noAuth} = this.state;
-    return <ListView data={user_data} update={this} isLoading={isLoading} />;
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            options={{
+              title: '목록',
+              headerTitleStyle: {
+                textAlign: 'center',
+              },
+            }}>
+            {(props) => (
+              <ListView
+                {...props}
+                data={user_data}
+                update={this}
+                isLoading={isLoading}
+              />
+            )}
+          </Stack.Screen>
+
+          <Stack.Screen
+            name="FilterView"
+            options={{
+              title: '필터',
+              headerTitleStyle: {
+                textAlign: 'center',
+              },
+            }}
+            component={FilterView}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
   }
 }

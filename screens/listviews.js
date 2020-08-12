@@ -35,6 +35,7 @@ function Item({item}) {
       <View style={{flex: 1}}>
         <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
         <Text>{item.url}</Text>
+        <Text>필터 : {item.filterling}</Text>
       </View>
       <View
         style={{
@@ -88,6 +89,18 @@ class FlatListItem extends Component {
       right: [
         {
           onPress: () => {
+            console.log(this.props.item.url);
+            this.props.navigation.navigate('FilterView', {
+              uri: this.props.item.url,
+              index: this.props.index,
+              jwt_token: this.props.update.props.jwt_token,
+            });
+          },
+          text: 'Filter',
+          type: 'filter',
+        },
+        {
+          onPress: () => {
             console.log(this.props.index);
             this.props.update._domainDelete(this.props.index);
           },
@@ -109,13 +122,21 @@ class FlatListItem extends Component {
   }
 }
 
-export default ({data, update, isLoading}) => {
+export default ({data, update, isLoading, navigation, route}) => {
+  //const {renderRefresh} = route.params;
   const [user_data, setData] = useState('');
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
   const Banner = firebase.admob.Banner;
   const AdRequest = firebase.admob.AdRequest;
   const request = new AdRequest();
+
+  React.useEffect(() => {
+    if (route.params?.renderRefresh) {
+      onRefresh();
+      route.params.renderRefresh = false;
+    }
+  }, [route.params?.renderRefresh]);
 
   const unitId =
     Platform.OS === 'ios'
@@ -178,7 +199,14 @@ export default ({data, update, isLoading}) => {
           onRefresh={onRefresh}
           data={data}
           renderItem={({item, index}) => {
-            return <FlatListItem index={index} item={item} update={update} />;
+            return (
+              <FlatListItem
+                index={index}
+                item={item}
+                update={update}
+                navigation={navigation}
+              />
+            );
           }}
         />
       ) : (
@@ -195,7 +223,9 @@ export default ({data, update, isLoading}) => {
           </View>
         </DismissKeyboard>
       )}
-      <KeyboardAvoidingView behavior={isAndroid ? 'height' : 'position'}>
+      <KeyboardAvoidingView
+        behavior={isAndroid ? 'height' : 'position'}
+        keyboardVerticalOffset={isAndroid ? 0 : 64}>
         <View
           style={{
             flexDirection: 'row',
@@ -243,7 +273,6 @@ const styles = StyleSheet.create({
   ios_container: {
     flex: 1,
     backgroundColor: 'white',
-    paddingTop: 45,
     paddingBottom: 25,
   },
   listItem: {

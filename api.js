@@ -32,4 +32,6 @@ export default {
     callApi('post', '/domains/registUrl/', form, token),
   change: (form, token) => callApi('put', '/domains/toggle/', form, token),
   getAPNSToken: (form) => callAPNSToken('post', form),
+  post_filterling: (form, token) =>
+    callApi('post', '/domains/toggle/', form, token),
 };
