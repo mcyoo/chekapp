@@ -17,11 +17,11 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* chekappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* chekappTests.m */; };
-		7A33346D24CDACA800135E87 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A33346C24CDACA800135E87 /* SplashScreen.storyboard */; };
 		7A33346F24CDB11E00135E87 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A33346E24CDB11300135E87 /* libc++.tbd */; };
 		7A33347124CDB13700135E87 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A33347024CDB13000135E87 /* libsqlite3.tbd */; };
 		7A33347324CDB14600135E87 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A33347224CDB14000135E87 /* libz.tbd */; };
 		7ABF2DD924CDC2B400C5ABE0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7ABF2DD824CDC2B400C5ABE0 /* GoogleService-Info.plist */; };
+		7AC65AF525A6C3A300384B8C /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AC65AF425A6C3A300384B8C /* SplashScreen.storyboard */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B45F21FAC183FF441388929D /* libPods-chekapp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31282D0D2A493E0779CB86FA /* libPods-chekapp-tvOS.a */; };
 		F134D0EE6A27E2F3F8CD5529 /* libPods-chekapp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F196A5F5FE314784EAA6F0C /* libPods-chekapp-tvOSTests.a */; };
@@ -64,11 +64,11 @@
 		4CAF403E0118EED7658708FE /* Pods-chekapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chekapp.release.xcconfig"; path = "Target Support Files/Pods-chekapp/Pods-chekapp.release.xcconfig"; sourceTree = "<group>"; };
 		5F196A5F5FE314784EAA6F0C /* libPods-chekapp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-chekapp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66A080F5B7168CDDCCFEDF73 /* Pods-chekapp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chekapp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-chekapp-tvOS/Pods-chekapp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		7A33346C24CDACA800135E87 /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		7A33346E24CDB11300135E87 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7A33347024CDB13000135E87 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7A33347224CDB14000135E87 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7ABF2DD824CDC2B400C5ABE0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "chekapp/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7AC65AF425A6C3A300384B8C /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		7AE72CE524CDB9CF00A2DDB5 /* chek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = chek.entitlements; path = chekapp/chek.entitlements; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = chekapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		934C310128D407441135A274 /* Pods-chekapp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chekapp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-chekapp-tvOSTests/Pods-chekapp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				7A33346C24CDACA800135E87 /* SplashScreen.storyboard */,
+				7AC65AF425A6C3A300384B8C /* SplashScreen.storyboard */,
 			);
 			name = chekapp;
 			sourceTree = "<group>";
@@ -362,8 +362,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				7AC65AF525A6C3A300384B8C /* SplashScreen.storyboard in Resources */,
 				7ABF2DD924CDC2B400C5ABE0 /* GoogleService-Info.plist in Resources */,
-				7A33346D24CDACA800135E87 /* SplashScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,9 +684,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B899B3P72G;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = chekapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -712,9 +714,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = chekapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -733,7 +737,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FAD5BCE190F67EF767B9CFD4 /* Pods-chekapp-tvOS.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -761,7 +764,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 66A080F5B7168CDDCCFEDF73 /* Pods-chekapp-tvOS.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -886,7 +888,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -939,7 +941,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",

@@ -225,7 +225,7 @@ export default ({data, update, isLoading, navigation, route}) => {
       )}
       <KeyboardAvoidingView
         behavior={isAndroid ? 'height' : 'position'}
-        keyboardVerticalOffset={isAndroid ? 0 : 64}>
+        keyboardVerticalOffset={isAndroid ? 0 : 80}>
         <View
           style={{
             flexDirection: 'row',
