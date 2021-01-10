@@ -62,11 +62,7 @@ export default ({route, navigation}) => {
     });
   }, [navigation]);
 
-  const LoadingPage = () => {
-    <Loader />;
-  };
   const filterling_data = async () => {
-    LoadingPage();
     console.log('filterling_data');
     try {
       const {status} = await api.post_filterling(
@@ -76,11 +72,6 @@ export default ({route, navigation}) => {
       console.log(status);
 
       if (status === 200) {
-        useEffect(() => {
-          return () => {
-            console.log('Do some cleanup');
-          };
-        }, []);
         navigation.navigate('Home', {
           renderRefresh: true,
         });
